@@ -1,0 +1,31 @@
+{
+  "name": "etherscan-mcp-server",
+  "module": "src/index.ts",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Model Context Protocol (MCP) Server for Etherscan",
+  "private": true,
+  "scripts": {
+    "start": "bun run src/index.ts",
+    "build": "bun build src/index.ts --outdir build --target node",
+    "build:http": "bun build src/server/http-server.ts --outdir build --target node",
+    "dev": "bun --watch src/index.ts",
+    "start:http": "bun run src/server/http-server.ts",
+    "dev:http": "bun --watch src/server/http-server.ts"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/cors": "^2.8.17",
+    "@types/node": "^20.11.0"
+  },
+  "peerDependencies": {
+    "typescript": "^5.8.2",
+    "@valibot/to-json-schema": "^1.0.0",
+    "effect": "^3.14.4"
+  },
+  "dependencies": {
+    "fastmcp": "^1.21.0",
+    "cors": "^2.8.5",
+    "zod": "^3.24.2"
+  }
+}

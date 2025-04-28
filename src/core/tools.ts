@@ -1,0 +1,12 @@
+import { FastMCP } from "fastmcp";
+import * as tools from "./tools/index.js";
+
+/**
+ * Register all tools with the MCP server
+ * 
+ * @param server The FastMCP server instance
+ */
+export function registerTools(server: FastMCP) {
+  tools.registerAccountTools(server);
+  tools.registerBalanceTools(server);
+}
