@@ -5,3 +5,4 @@ export * from './blocksTools.js';
 export * from './logsTools.js';
 export * from './rpcTools.js';
 export * from './tokensTools.js';
+export * from './gasTools.js';
