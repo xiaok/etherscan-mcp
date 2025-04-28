@@ -35,9 +35,18 @@ Follow the guide https://modelcontextprotocol.io/quickstart/user and add the fol
       "command": "npx",
       "args": ["tsx", "/PATH/TO/YOUR_PROJECT/src/index.ts"],
       "env": {
-        "YOUR_ENV_VAR": "value"
+        "ETHERSCAN_API_KEY": "********"
       }
     }
   }
 }
 ```
+
+## API Doc
+
+https://docs.etherscan.io/
+
+## TODO
+
+1. fully test
+2. support more EVM chain
