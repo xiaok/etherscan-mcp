@@ -15,4 +15,5 @@ export function registerTools(server: FastMCP) {
   tools.registerRpcTools(server);
   tools.registerTokensTools(server);
   tools.registerGasTools(server);
+  tools.registerStatsTools(server);
 }

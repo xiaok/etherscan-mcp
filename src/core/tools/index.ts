@@ -6,3 +6,4 @@ export * from './logsTools.js';
 export * from './rpcTools.js';
 export * from './tokensTools.js';
 export * from './gasTools.js';
+export * from './statsTools.js';
