@@ -1,21 +1,40 @@
 import { FastMCP } from "fastmcp";
 import { z } from "zod";
+import { apiCall } from "./utils.js";
 
 export function registerAccountTools(server: FastMCP) {
   server.addTool({
-    name: "hello_world",
-    description: "A simple hello world tool",
+    name: "account/balance",
+    description: "Returns the Ether balance of a given address.",
     parameters: z.object({
-      name: z.string().describe("Name to greet")
+      address: z.string().describe("the string representing the address to check for balance")
     }),
     execute: async (params) => {
-      try {
-        console.log("Executing hello_world tool with params:", params);
-        return `Hello ${params.name}`;
-      } catch (error) {
-        console.error("Error in hello_world tool:", error);
-        throw error;
-      }
+
+      const fullParams = {
+        ...params, 
+        module: "account", 
+        action: "balance" 
+      };
+      return await apiCall(fullParams);
     }
   });
+
+  server.addTool({
+    name: "account/balancemulti",
+    description: "Get Ether Balance for Multiple Addresses in a Single Call",
+    parameters: z.object({
+      address: z.string().describe("the string representing the address to check for balance")
+    }),
+    execute: async (params) => {
+
+      const fullParams = {
+        ...params, 
+        module: "account", 
+        action: "balancemulti" 
+      };
+      return await apiCall(fullParams);
+    }
+  });
+
 } 
