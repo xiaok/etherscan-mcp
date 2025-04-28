@@ -8,5 +8,6 @@ import * as tools from "./tools/index.js";
  */
 export function registerTools(server: FastMCP) {
   tools.registerAccountTools(server);
-  tools.registerBalanceTools(server);
+  tools.registerContractTools(server);
+  tools.registerTransactionsTools(server);
 }
