@@ -10,4 +10,5 @@ export function registerTools(server: FastMCP) {
   tools.registerAccountTools(server);
   tools.registerContractTools(server);
   tools.registerTransactionsTools(server);
+  tools.registerBlocksTools(server);
 }
