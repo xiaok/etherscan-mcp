@@ -1,5 +1,5 @@
 {
-  "name": "etherscan-mcp-server",
+  "name": "etherscan-mcp",
   "module": "src/index.ts",
   "type": "module",
   "version": "1.0.0",
