@@ -1,5 +1,10 @@
 # @xiaok/etherscan-mcp
 
+A dynamic MCP server for interacting with Etherscan's API and services.
+
+<a href="https://glama.ai/mcp/servers/@xiaok/etherscan-mcp">
+  <img width="380" height="200" src="https://glama.ai/mcp/servers/@xiaok/etherscan-mcp/badge" alt="Etherscan MCP server" />
+</a>
 
 ## Running Your Server
 
