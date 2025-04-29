@@ -8,7 +8,8 @@ export function registerTokensTools(server: FastMCP) {
     name: "stats/tokensupply",
     description: "Returns the current amount of an ERC-20 token in circulation.",
     parameters: z.object({
-      contractaddress: z.string().describe("the `contract address` of the ERC-20 token")
+      contractaddress: z.string().describe("the `contract address` of the ERC-20 token"),
+      chainid: z.string().optional().default("1").describe("chain id, default 1 ( Ethereum )"),
     }),
     execute: async (params) => {
       const fullParams = { ...params, module: "stats", action: "tokensupply" };
@@ -22,7 +23,8 @@ export function registerTokensTools(server: FastMCP) {
     description: "Returns the current balance of an ERC-20 token of an address.",
     parameters: z.object({
       contractaddress: z.string().describe("the `contract address` of the ERC-20 token"),
-      address: z.string().describe("the `string` representing the address to check for token balance")
+      address: z.string().describe("the `string` representing the address to check for token balance"),
+      chainid: z.string().optional().default("1").describe("chain id, default 1 ( Ethereum )"),
     }),
     execute: async (params) => {
       const fullParams = { ...params, module: "account", action: "tokenbalance", tag: "latest" };
@@ -36,7 +38,8 @@ export function registerTokensTools(server: FastMCP) {
     description: "Returns the amount of an ERC-20 token in circulation at a certain block height.",
     parameters: z.object({
       contractaddress: z.string().describe("the `contract address` of the ERC-20 token"),
-      blockno: z.string().describe("the `integer` block number to check total supply for eg.")
+      blockno: z.string().describe("the `integer` block number to check total supply for eg."),
+      chainid: z.string().optional().default("1").describe("chain id, default 1 ( Ethereum )"),
     }),
     execute: async (params) => {
       const fullParams = { ...params, module: "stats", action: "tokensupplyhistory" };
@@ -51,7 +54,8 @@ export function registerTokensTools(server: FastMCP) {
     parameters: z.object({
       contractaddress: z.string().describe("the `contract address` of the ERC-20 token"),
       address: z.string().describe("the `string` representing the address to check for balance"),
-      blockno: z.string().describe("the `integer` block number to check total supply for eg.")
+      blockno: z.string().describe("the `integer` block number to check total supply for eg."),
+      chainid: z.string().optional().default("1").describe("chain id, default 1 ( Ethereum )"),
     }),
     execute: async (params) => {
       const fullParams = { ...params, module: "account", action: "tokenbalancehistory" };
@@ -66,7 +70,8 @@ export function registerTokensTools(server: FastMCP) {
     parameters: z.object({
       contractaddress: z.string().describe("the `contract address` of the ERC-20 token"),
       page: z.string().optional().describe("the `integer` page number, if pagination is enabled"),
-      offset: z.string().optional().describe("the number of transactions displayed per page")
+      offset: z.string().optional().describe("the number of transactions displayed per page"),
+      chainid: z.string().optional().default("1").describe("chain id, default 1 ( Ethereum )"),
     }),
     execute: async (params) => {
       const fullParams = { ...params, module: "token", action: "tokenholderlist" };
@@ -79,7 +84,8 @@ export function registerTokensTools(server: FastMCP) {
     name: "token/tokenholdercount",
     description: "Return a simple count of the number of ERC20 token holders.",
     parameters: z.object({
-      contractaddress: z.string().describe("the `contract address` of the ERC-20 token")
+      contractaddress: z.string().describe("the `contract address` of the ERC-20 token"),
+      chainid: z.string().optional().default("1").describe("chain id, default 1 ( Ethereum )"),
     }),
     execute: async (params) => {
       const fullParams = { ...params, module: "token", action: "tokenholdercount" };
@@ -92,7 +98,8 @@ export function registerTokensTools(server: FastMCP) {
     name: "token/tokeninfo",
     description: "Returns the token info by contract address.",
     parameters: z.object({
-      contractaddress: z.string().describe("the `contract address` of the token")
+      contractaddress: z.string().describe("the `contract address` of the token"),
+      chainid: z.string().optional().default("1").describe("chain id, default 1 ( Ethereum )"),
     }),
     execute: async (params) => {
       const fullParams = { ...params, module: "token", action: "tokeninfo" };
@@ -107,7 +114,8 @@ export function registerTokensTools(server: FastMCP) {
     parameters: z.object({
       address: z.string().describe("the `string` representing the address to check for balance"),
       page: z.string().optional().describe("the `integer` page number, if pagination is enabled"),
-      offset: z.string().optional().describe("the number of transactions displayed per page")
+      offset: z.string().optional().describe("the number of transactions displayed per page"),
+      chainid: z.string().optional().default("1").describe("chain id, default 1 ( Ethereum )"),
     }),
     execute: async (params) => {
       const fullParams = { ...params, module: "account", action: "addresstokenbalance" };
@@ -122,7 +130,8 @@ export function registerTokensTools(server: FastMCP) {
     parameters: z.object({
       address: z.string().describe("the `string` representing the address to check for balance"),
       page: z.string().optional().describe("the `integer` page number, if pagination is enabled"),
-      offset: z.string().optional().describe("the number of transactions displayed per page")
+      offset: z.string().optional().describe("the number of transactions displayed per page"),
+      chainid: z.string().optional().default("1").describe("chain id, default 1 ( Ethereum )"),
     }),
     execute: async (params) => {
       const fullParams = { ...params, module: "account", action: "addresstokennftbalance" };

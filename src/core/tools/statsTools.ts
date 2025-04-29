@@ -7,7 +7,9 @@ export function registerStatsTools(server: FastMCP) {
   server.addTool({
     name: "stats/ethsupply",
     description: "Returns the current amount of Ether in circulation excluding ETH2 Staking rewards and EIP1559 burnt fees.",
-    parameters: z.object({}),
+    parameters: z.object({
+      chainid: z.string().optional().default("1").describe("chain id, default 1 ( Ethereum )"),
+    }),
     execute: async (params) => {
       const fullParams = { ...params, module: "stats", action: "ethsupply" };
       return await apiCall(fullParams);
@@ -18,7 +20,9 @@ export function registerStatsTools(server: FastMCP) {
   server.addTool({
     name: "stats/ethsupply2",
     description: "Returns the current amount of Ether in circulation, ETH2 Staking rewards, EIP1559 burnt fees, and total withdrawn ETH from the beacon chain.",
-    parameters: z.object({}),
+    parameters: z.object({
+      chainid: z.string().optional().default("1").describe("chain id, default 1 ( Ethereum )"),
+    }),
     execute: async (params) => {
       const fullParams = { ...params, module: "stats", action: "ethsupply2" };
       return await apiCall(fullParams);
@@ -29,7 +33,9 @@ export function registerStatsTools(server: FastMCP) {
   server.addTool({
     name: "stats/ethprice",
     description: "Returns the latest price of 1 ETH.",
-    parameters: z.object({}),
+    parameters: z.object({
+      chainid: z.string().optional().default("1").describe("chain id, default 1 ( Ethereum )"),
+    }),
     execute: async (params) => {
       const fullParams = { ...params, module: "stats", action: "ethprice" };
       return await apiCall(fullParams);
@@ -45,7 +51,8 @@ export function registerStatsTools(server: FastMCP) {
       enddate: z.string().describe("the ending date in `yyyy-MM-dd` format, eg. `2019-02-28`"),
       clienttype: z.string().describe("the Ethereum node client to use, either `geth` or `parity`"),
       syncmode: z.string().describe("the type of node to run, either `default` or `archive`"),
-      sort: z.string().describe("the sorting preference, use `asc` to sort by ascending and `desc` to sort by descending")
+      sort: z.string().describe("the sorting preference, use `asc` to sort by ascending and `desc` to sort by descending"),
+      chainid: z.string().optional().default("1").describe("chain id, default 1 ( Ethereum )"),
     }),
     execute: async (params) => {
       const fullParams = { ...params, module: "stats", action: "chainsize" };
@@ -57,7 +64,9 @@ export function registerStatsTools(server: FastMCP) {
   server.addTool({
     name: "stats/nodecount",
     description: "Returns the total number of discoverable Ethereum nodes.",
-    parameters: z.object({}),
+    parameters: z.object({
+      chainid: z.string().optional().default("1").describe("chain id, default 1 ( Ethereum )"),
+    }),
     execute: async (params) => {
       const fullParams = { ...params, module: "stats", action: "nodecount" };
       return await apiCall(fullParams);
@@ -71,7 +80,8 @@ export function registerStatsTools(server: FastMCP) {
     parameters: z.object({
       startdate: z.string().describe("the starting date in `yyyy-MM-dd` format, eg. `2019-02-01`"),
       enddate: z.string().describe("the ending date in `yyyy-MM-dd` format, eg. `2019-02-28`"),
-      sort: z.string().describe("the sorting preference, use `asc` to sort by ascending and `desc` to sort by descending")
+      sort: z.string().describe("the sorting preference, use `asc` to sort by ascending and `desc` to sort by descending"),
+      chainid: z.string().optional().default("1").describe("chain id, default 1 ( Ethereum )"),
     }),
     execute: async (params) => {
       const fullParams = { ...params, module: "stats", action: "dailytxnfee" };
@@ -86,7 +96,8 @@ export function registerStatsTools(server: FastMCP) {
     parameters: z.object({
       startdate: z.string().describe("the starting date in `yyyy-MM-dd` format, eg. `2019-02-01`"),
       enddate: z.string().describe("the ending date in `yyyy-MM-dd` format, eg. `2019-02-28`"),
-      sort: z.string().describe("the sorting preference, use `asc` to sort by ascending and `desc` to sort by descending")
+      sort: z.string().describe("the sorting preference, use `asc` to sort by ascending and `desc` to sort by descending"),
+      chainid: z.string().optional().default("1").describe("chain id, default 1 ( Ethereum )"),
     }),
     execute: async (params) => {
       const fullParams = { ...params, module: "stats", action: "dailynewaddress" };
@@ -101,7 +112,8 @@ export function registerStatsTools(server: FastMCP) {
     parameters: z.object({
       startdate: z.string().describe("the starting date in `yyyy-MM-dd` format, eg. `2019-02-01`"),
       enddate: z.string().describe("the ending date in `yyyy-MM-dd` format, eg. `2019-02-28`"),
-      sort: z.string().describe("the sorting preference, use `asc` to sort by ascending and `desc` to sort by descending")
+      sort: z.string().describe("the sorting preference, use `asc` to sort by ascending and `desc` to sort by descending"),
+      chainid: z.string().optional().default("1").describe("chain id, default 1 ( Ethereum )"),
     }),
     execute: async (params) => {
       const fullParams = { ...params, module: "stats", action: "dailynetutilization" };
@@ -116,7 +128,8 @@ export function registerStatsTools(server: FastMCP) {
     parameters: z.object({
       startdate: z.string().describe("the starting date in `yyyy-MM-dd` format, eg. `2019-02-01`"),
       enddate: z.string().describe("the ending date in `yyyy-MM-dd` format, eg. `2019-02-28`"),
-      sort: z.string().describe("the sorting preference, use `asc` to sort by ascending and `desc` to sort by descending")
+      sort: z.string().describe("the sorting preference, use `asc` to sort by ascending and `desc` to sort by descending"),
+      chainid: z.string().optional().default("1").describe("chain id, default 1 ( Ethereum )"),
     }),
     execute: async (params) => {
       const fullParams = { ...params, module: "stats", action: "dailyavghashrate" };
@@ -131,7 +144,8 @@ export function registerStatsTools(server: FastMCP) {
     parameters: z.object({
       startdate: z.string().describe("the starting date in `yyyy-MM-dd` format, eg. `2019-02-01`"),
       enddate: z.string().describe("the ending date in `yyyy-MM-dd` format, eg. `2019-02-28`"),
-      sort: z.string().describe("the sorting preference, use `asc` to sort by ascending and `desc` to sort by descending")
+      sort: z.string().describe("the sorting preference, use `asc` to sort by ascending and `desc` to sort by descending"),
+      chainid: z.string().optional().default("1").describe("chain id, default 1 ( Ethereum )"),
     }),
     execute: async (params) => {
       const fullParams = { ...params, module: "stats", action: "dailytx" };
@@ -146,7 +160,8 @@ export function registerStatsTools(server: FastMCP) {
     parameters: z.object({
       startdate: z.string().describe("the starting date in `yyyy-MM-dd` format, eg. `2019-02-01`"),
       enddate: z.string().describe("the ending date in `yyyy-MM-dd` format, eg. `2019-02-28`"),
-      sort: z.string().describe("the sorting preference, use `asc` to sort by ascending and `desc` to sort by descending")
+      sort: z.string().describe("the sorting preference, use `asc` to sort by ascending and `desc` to sort by descending"),
+      chainid: z.string().optional().default("1").describe("chain id, default 1 ( Ethereum )"),
     }),
     execute: async (params) => {
       const fullParams = { ...params, module: "stats", action: "dailyavgnetdifficulty" };
@@ -161,7 +176,8 @@ export function registerStatsTools(server: FastMCP) {
     parameters: z.object({
       startdate: z.string().describe("the starting date in `yyyy-MM-dd` format, eg. `2019-02-01`"),
       enddate: z.string().describe("the ending date in `yyyy-MM-dd` format, eg. `2019-02-28`"),
-      sort: z.string().describe("the sorting preference, use `asc` to sort by ascending and `desc` to sort by descending")
+      sort: z.string().describe("the sorting preference, use `asc` to sort by ascending and `desc` to sort by descending"),
+      chainid: z.string().optional().default("1").describe("chain id, default 1 ( Ethereum )"),
     }),
     execute: async (params) => {
       const fullParams = { ...params, module: "stats", action: "ethdailyprice" };

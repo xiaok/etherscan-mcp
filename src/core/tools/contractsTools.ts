@@ -8,7 +8,8 @@ export function registerContractTools(server: FastMCP) {
     name: "contract/getabi",
     description: "Returns the Contract Application Binary Interface ( ABI ) of a verified smart contract.",
     parameters: z.object({
-      address: z.string().describe("the `contract address` that has a verified source code")
+      address: z.string().describe("the `contract address` that has a verified source code"),
+      chainid: z.string().optional().default("1").describe("chain id, default 1 ( Ethereum )"),
     }),
     execute: async (params) => {
       const fullParams = { ...params, module: "contract", action: "getabi" };
@@ -21,7 +22,8 @@ export function registerContractTools(server: FastMCP) {
     name: "contract/getsourcecode",
     description: "Returns the Contract Source Code for Verified Contract Source Codes.",
     parameters: z.object({
-      address: z.string().describe("the `contract address` that has a verified source code")
+      address: z.string().describe("the `contract address` that has a verified source code"),
+      chainid: z.string().optional().default("1").describe("chain id, default 1 ( Ethereum )"),
     }),
     execute: async (params) => {
       const fullParams = { ...params, module: "contract", action: "getsourcecode" };
@@ -34,7 +36,8 @@ export function registerContractTools(server: FastMCP) {
     name: "contract/getcontractcreation",
     description: "Returns the Contract Creator and Creation Tx Hash.",
     parameters: z.object({
-      contractaddresses: z.string().describe("the `contract address` to check for contract creator and creation tx hash, up to 5 at a time")
+      contractaddresses: z.string().describe("the `contract address` to check for contract creator and creation tx hash, up to 5 at a time"),
+      chainid: z.string().optional().default("1").describe("chain id, default 1 ( Ethereum )"),
     }),
     execute: async (params) => {
       const fullParams = { ...params, module: "contract", action: "getcontractcreation" };
@@ -47,7 +50,8 @@ export function registerContractTools(server: FastMCP) {
     name: "contract/checkverifystatus",
     description: "Returns the success or error status of a contract verification request.",
     parameters: z.object({
-      guid: z.string().describe("the unique `guid` received from the verification request")
+      guid: z.string().describe("the unique `guid` received from the verification request"),
+      chainid: z.string().optional().default("1").describe("chain id, default 1 ( Ethereum )"),
     }),
     execute: async (params) => {
       const fullParams = { ...params, module: "contract", action: "checkverifystatus" };
@@ -60,7 +64,8 @@ export function registerContractTools(server: FastMCP) {
     name: "contract/checkproxyverification",
     description: "Returns the status of a proxy contract verification submission.",
     parameters: z.object({
-      guid: z.string().describe("the unique `guid` received from the proxy verification request")
+      guid: z.string().describe("the unique `guid` received from the proxy verification request"),
+      chainid: z.string().optional().default("1").describe("chain id, default 1 ( Ethereum )"),
     }),
     execute: async (params) => {
       const fullParams = { ...params, module: "contract", action: "checkproxyverification" };

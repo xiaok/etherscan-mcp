@@ -8,7 +8,8 @@ export function registerGasTools(server: FastMCP) {
     name: "gas/gasestimate",
     description: "Returns the estimated time, in seconds, for a transaction to be confirmed on the blockchain.",
     parameters: z.object({
-      gasprice: z.string().describe("the price paid per unit of gas, in `wei`")
+      gasprice: z.string().describe("the price paid per unit of gas, in `wei`"),
+      chainid: z.string().optional().default("1").describe("chain id, default 1 ( Ethereum )"),
     }),
     execute: async (params) => {
       const fullParams = { ...params, module: "gastracker", action: "gasestimate" };
@@ -20,7 +21,9 @@ export function registerGasTools(server: FastMCP) {
   server.addTool({
     name: "gas/gasoracle",
     description: "Returns the current Safe, Proposed and Fast gas prices.",
-    parameters: z.object({}),
+    parameters: z.object({
+      chainid: z.string().optional().default("1").describe("chain id, default 1 ( Ethereum )"),
+    }),
     execute: async (params) => {
       const fullParams = { ...params, module: "gastracker", action: "gasoracle" };
       return await apiCall(fullParams);
@@ -34,7 +37,8 @@ export function registerGasTools(server: FastMCP) {
     parameters: z.object({
       startdate: z.string().describe("the starting date in `yyyy-MM-dd` format, eg. `2019-01-31`"),
       enddate: z.string().describe("the ending date in `yyyy-MM-dd` format, eg. `2019-02-28`"),
-      sort: z.string().describe("the sorting preference, use `asc` to sort by ascending and `desc` to sort by descending")
+      sort: z.string().describe("the sorting preference, use `asc` to sort by ascending and `desc` to sort by descending"),
+      chainid: z.string().optional().default("1").describe("chain id, default 1 ( Ethereum )"),
     }),
     execute: async (params) => {
       const fullParams = { ...params, module: "stats", action: "dailyavggaslimit" };
@@ -49,7 +53,8 @@ export function registerGasTools(server: FastMCP) {
     parameters: z.object({
       startdate: z.string().describe("the starting date in `yyyy-MM-dd` format, eg. `2019-01-31`"),
       enddate: z.string().describe("the ending date in `yyyy-MM-dd` format, eg. `2019-02-28`"),
-      sort: z.string().describe("the sorting preference, use `asc` to sort by ascending and `desc` to sort by descending")
+      sort: z.string().describe("the sorting preference, use `asc` to sort by ascending and `desc` to sort by descending"),
+      chainid: z.string().optional().default("1").describe("chain id, default 1 ( Ethereum )"),
     }),
     execute: async (params) => {
       const fullParams = { ...params, module: "stats", action: "dailygasused" };
@@ -64,7 +69,8 @@ export function registerGasTools(server: FastMCP) {
     parameters: z.object({
       startdate: z.string().describe("the starting date in `yyyy-MM-dd` format, eg. `2019-01-31`"),
       enddate: z.string().describe("the ending date in `yyyy-MM-dd` format, eg. `2019-02-28`"),
-      sort: z.string().describe("the sorting preference, use `asc` to sort by ascending and `desc` to sort by descending")
+      sort: z.string().describe("the sorting preference, use `asc` to sort by ascending and `desc` to sort by descending"),
+      chainid: z.string().optional().default("1").describe("chain id, default 1 ( Ethereum )"),
     }),
     execute: async (params) => {
       const fullParams = { ...params, module: "stats", action: "dailyavggasprice" };

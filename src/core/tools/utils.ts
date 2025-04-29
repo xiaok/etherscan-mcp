@@ -25,7 +25,7 @@ export async function makeApiRequest(params = {}) {
 
   queryParams.append("apikey", apiKey);
 
-  const url = `https://api.etherscan.io/api${
+  const url = `https://api.etherscan.io/v2/api${
     queryParams.toString() ? `?${queryParams.toString()}` : ""
   }`;
 
