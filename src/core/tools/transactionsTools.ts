@@ -8,7 +8,8 @@ export function registerTransactionsTools(server: FastMCP) {
     name: "transaction/getstatus",
     description: "Returns the status code of a contract execution.",
     parameters: z.object({
-      txhash: z.string().describe("the `string` representing the transaction hash to check the execution status")
+      txhash: z.string().describe("the `string` representing the transaction hash to check the execution status"),
+      chainid: z.string().optional().default("1").describe("The chain id, default is 1")
     }),
     execute: async (params) => {
       const fullParams = { ...params, module: "transaction", action: "getstatus" };
@@ -21,7 +22,8 @@ export function registerTransactionsTools(server: FastMCP) {
     name: "transaction/gettxreceiptstatus",
     description: "Returns the status code of a transaction execution.",
     parameters: z.object({
-      txhash: z.string().describe("the `string` representing the transaction hash to check the execution status")
+      txhash: z.string().describe("the `string` representing the transaction hash to check the execution status"),
+      chainid: z.string().optional().default("1").describe("The chain id, default is 1")
     }),
     execute: async (params) => {
       const fullParams = { ...params, module: "transaction", action: "gettxreceiptstatus" };
