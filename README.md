@@ -52,8 +52,9 @@ Follow the guide https://modelcontextprotocol.io/quickstart/user and add the fol
 https://docs.etherscan.io/etherscan-v2  
 
 support chain list: https://docs.etherscan.io/etherscan-v2/getting-started/supported-chains  
+
 Please note that not all endpoints are supported by all chains. Please find support list here: https://forms.blockscan.com/public/grid/3E9QiN00NLhCQVibiP3Z-Bpqhmd7zGXsgapEKJupxiI  
 
 ## TODO
 
-1. fully test
+1. support pro api
