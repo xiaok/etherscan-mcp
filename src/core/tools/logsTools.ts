@@ -11,8 +11,9 @@ export function registerLogsTools(server: FastMCP) {
       address: z.string().describe("the `string` representing the address to check for logs"),
       fromBlock: z.string().optional().describe("the `integer` block number to start searching for logs eg. `12878196`"),
       toBlock: z.string().optional().describe("the `integer` block number to stop searching for logs eg. `12879196`"),
-      page: z.string().optional().describe("the `integer` page number, if pagination is enabled"),
-      offset: z.string().optional().describe("the number of transactions displayed per page limited to **1000 records** per query, use the `page` parameter for subsequent records")
+      page: z.string().optional().default("1").describe("the `integer` page number, if pagination is enabled"),
+      offset: z.string().optional().default("1000").describe("the number of transactions displayed per page limited to **1000 records** per query, use the `page` parameter for subsequent records"),
+      chainid: z.string().optional().default("1").describe("The chain id, default is 1")
     }),
     execute: async (params) => {
       const fullParams = { ...params, module: "logs", action: "getLogs" };
@@ -38,7 +39,8 @@ export function registerLogsTools(server: FastMCP) {
       topic0_3_opr: z.string().optional().describe("the topic operator when multiple topic combinations are used limited to `and` or `or`"),
       topic1_3_opr: z.string().optional().describe("the topic operator when multiple topic combinations are used limited to `and` or `or`"),
       page: z.string().optional().describe("the `integer` page number, if pagination is enabled"),
-      offset: z.string().optional().describe("the number of transactions displayed per page limited to **1000 records** per query, use the `page` parameter for subsequent records")
+      offset: z.string().optional().describe("the number of transactions displayed per page limited to **1000 records** per query, use the `page` parameter for subsequent records"),
+      chainid: z.string().optional().default("1").describe("The chain id, default is 1")
     }),
     execute: async (params) => {
       const fullParams = { ...params, module: "logs", action: "getLogs" };
@@ -65,7 +67,8 @@ export function registerLogsTools(server: FastMCP) {
       topic0_3_opr: z.string().optional().describe("the topic operator when multiple topic combinations are used limited to `and` or `or`"),
       topic1_3_opr: z.string().optional().describe("the topic operator when multiple topic combinations are used limited to `and` or `or`"),
       page: z.string().optional().describe("the `integer` page number, if pagination is enabled"),
-      offset: z.string().optional().describe("the number of transactions displayed per page limited to **1000 records** per query, use the `page` parameter for subsequent records")
+      offset: z.string().optional().describe("the number of transactions displayed per page limited to **1000 records** per query, use the `page` parameter for subsequent records"),
+      chainid: z.string().optional().default("1").describe("The chain id, default is 1")
     }),
     execute: async (params) => {
       const fullParams = { ...params, module: "logs", action: "getLogs" };
