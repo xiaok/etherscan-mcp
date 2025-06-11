@@ -8,7 +8,8 @@ export function registerAccountTools(server: FastMCP) {
     name: "account/balance",
     description: "Returns the Ether balance of a given address.",
     parameters: z.object({
-      address: z.string().describe("the `string` representing the address to check for balance")
+      address: z.string().describe("the `string` representing the address to check for balance"),
+      chainid: z.string().optional().default("1").describe("The chain id, default is 1")
     }),
     execute: async (params) => {
       const fullParams = { ...params, module: "account", action: "balance" };
@@ -21,7 +22,8 @@ export function registerAccountTools(server: FastMCP) {
     name: "account/balancemulti",
     description: "Get Ether Balance for Multiple Addresses in a Single Call",
     parameters: z.object({
-      address: z.string().describe("the `strings` representing the addresses to check for balance, separated by `,`\nup to **20 addresses** per call")
+      address: z.string().describe("the `strings` representing the addresses to check for balance, separated by `,`\nup to **20 addresses** per call"),
+      chainid: z.string().optional().default("1").describe("The chain id, default is 1")
     }),
     execute: async (params) => {
       const fullParams = { ...params, module: "account", action: "balancemulti" };
@@ -39,7 +41,8 @@ export function registerAccountTools(server: FastMCP) {
       endblock: z.string().optional().default("99999999").describe("the `integer` block number to stop searching for transactions"),
       page: z.string().optional().default("1").describe("the `integer` page number, if pagination is enabled"),
       offset: z.string().optional().default("10").describe("the number of transactions displayed per page"),
-      sort: z.string().optional().default("asc").describe("the sorting preference, use `asc` to sort by ascending and `desc` to sort by descending")
+      sort: z.string().optional().default("asc").describe("the sorting preference, use `asc` to sort by ascending and `desc` to sort by descending"),
+      chainid: z.string().optional().default("1").describe("The chain id, default is 1")
     }),
     execute: async (params) => {
       const fullParams = { ...params, module: "account", action: "txlist" };
@@ -57,7 +60,8 @@ export function registerAccountTools(server: FastMCP) {
       endblock: z.string().optional().default("99999999").describe("the `integer` block number to stop searching for transactions"),
       page: z.string().optional().default("1").describe("the `integer` page number, if pagination is enabled"),
       offset: z.string().optional().default("10").describe("the number of transactions displayed per page"),
-      sort: z.string().optional().default("asc").describe("the sorting preference, use `asc` to sort by ascending and `desc` to sort by descending")
+      sort: z.string().optional().default("asc").describe("the sorting preference, use `asc` to sort by ascending and `desc` to sort by descending"),
+      chainid: z.string().optional().default("1").describe("The chain id, default is 1")
     }),
     execute: async (params) => {
       const fullParams = { ...params, module: "account", action: "txlistinternal" };
@@ -70,7 +74,8 @@ export function registerAccountTools(server: FastMCP) {
     name: "account/txlistinternal_byhash",
     description: "Returns the list of 'Internal' Transactions by Transaction Hash",
     parameters: z.object({
-      txhash: z.string().describe("the `string` representing the transaction hash to get internal txs for")
+      txhash: z.string().describe("the `string` representing the transaction hash to get internal txs for"),
+      chainid: z.string().optional().default("1").describe("The chain id, default is 1")
     }),
     execute: async (params) => {
       const fullParams = { ...params, module: "account", action: "txlistinternal" };
@@ -87,7 +92,8 @@ export function registerAccountTools(server: FastMCP) {
       endblock: z.string().describe("the `integer` block number to stop searching for transactions"),
       page: z.string().optional().default("1").describe("the `integer` page number, if pagination is enabled"),
       offset: z.string().optional().default("10").describe("the number of transactions displayed per page"),
-      sort: z.string().optional().default("asc").describe("the sorting preference, use `asc` to sort by ascending and `desc` to sort by descending")
+      sort: z.string().optional().default("asc").describe("the sorting preference, use `asc` to sort by ascending and `desc` to sort by descending"),
+      chainid: z.string().optional().default("1").describe("The chain id, default is 1")
     }),
     execute: async (params) => {
       const fullParams = { ...params, module: "account", action: "txlistinternal" };
@@ -106,7 +112,8 @@ export function registerAccountTools(server: FastMCP) {
       endblock: z.string().optional().default("99999999").describe("the `integer` block number to stop searching for transactions"),
       page: z.string().optional().default("1").describe("the `integer` page number, if pagination is enabled"),
       offset: z.string().optional().default("10").describe("the number of transactions displayed per page"),
-      sort: z.string().optional().default("asc").describe("the sorting preference, use `asc` to sort by ascending and `desc` to sort by descending")
+      sort: z.string().optional().default("asc").describe("the sorting preference, use `asc` to sort by ascending and `desc` to sort by descending"),
+      chainid: z.string().optional().default("1").describe("The chain id, default is 1")
     }),
     execute: async (params) => {
       const fullParams = { ...params, module: "account", action: "tokentx" };
@@ -125,7 +132,8 @@ export function registerAccountTools(server: FastMCP) {
       endblock: z.string().optional().default("99999999").describe("the `integer` block number to stop searching for transactions"),
       page: z.string().optional().default("1").describe("the `integer` page number, if pagination is enabled"),
       offset: z.string().optional().default("10").describe("the number of transactions displayed per page"),
-      sort: z.string().optional().default("asc").describe("the sorting preference, use `asc` to sort by ascending and `desc` to sort by descending")
+      sort: z.string().optional().default("asc").describe("the sorting preference, use `asc` to sort by ascending and `desc` to sort by descending"),
+      chainid: z.string().optional().default("1").describe("The chain id, default is 1")
     }),
     execute: async (params) => {
       const fullParams = { ...params, module: "account", action: "tokennfttx" };
@@ -144,10 +152,25 @@ export function registerAccountTools(server: FastMCP) {
       endblock: z.string().optional().default("99999999").describe("the `integer` block number to stop searching for transactions"),
       page: z.string().optional().default("1").describe("the `integer` page number, if pagination is enabled"),
       offset: z.string().optional().default("10").describe("the number of transactions displayed per page"),
-      sort: z.string().optional().default("asc").describe("the sorting preference, use `asc` to sort by ascending and `desc` to sort by descending")
+      sort: z.string().optional().default("asc").describe("the sorting preference, use `asc` to sort by ascending and `desc` to sort by descending"),
+      chainid: z.string().optional().default("1").describe("The chain id, default is 1")
     }),
     execute: async (params) => {
       const fullParams = { ...params, module: "account", action: "token1155tx" };
+      return await apiCall(fullParams);
+    }
+  });
+
+  // Get Address Funded By
+  server.addTool({
+    name: "account/fundedby",
+    description: "Returns the address that funded an address, and its relative age.",
+    parameters: z.object({
+      address: z.string().describe("the `string` representing the address that received funding"),
+      chainid: z.string().optional().default("1").describe("The chain id, default is 1")
+    }),
+    execute: async (params) => {
+      const fullParams = { ...params, module: "account", action: "fundedby" };
       return await apiCall(fullParams);
     }
   });
@@ -160,7 +183,8 @@ export function registerAccountTools(server: FastMCP) {
       address: z.string().describe("the `string` representing the address to check for validated blocks"),
       blocktype: z.string().optional().default("blocks").describe("the `string` pre-defined block type, either `blocks` for canonical blocks or `uncles` for uncle blocks only"),
       page: z.string().optional().default("1").describe("the `integer` page number, if pagination is enabled"),
-      offset: z.string().optional().default("10").describe("the number of blocks displayed per page")
+      offset: z.string().optional().default("10").describe("the number of blocks displayed per page"),
+      chainid: z.string().optional().default("1").describe("The chain id, default is 1")
     }),
     execute: async (params) => {
       const fullParams = { ...params, module: "account", action: "getminedblocks" };
@@ -178,7 +202,8 @@ export function registerAccountTools(server: FastMCP) {
       endblock: z.string().optional().default("99999999").describe("the `integer` block number to stop searching for transactions"),
       page: z.string().optional().default("1").describe("the `integer` page number, if pagination is enabled"),
       offset: z.string().optional().default("100").describe("the number of withdrawals displayed per page"),
-      sort: z.string().optional().default("asc").describe("the sorting preference, use `asc` to sort by ascending and `desc` to sort by descending")
+      sort: z.string().optional().default("asc").describe("the sorting preference, use `asc` to sort by ascending and `desc` to sort by descending"),
+      chainid: z.string().optional().default("1").describe("The chain id, default is 1")
     }),
     execute: async (params) => {
       const fullParams = { ...params, module: "account", action: "txsBeaconWithdrawal" };
@@ -187,16 +212,18 @@ export function registerAccountTools(server: FastMCP) {
   });
 
   // Get Historical Ether Balance for a Single Address By BlockNo
-  server.addTool({
-    name: "account/balancehistory",
-    description: "Returns the balance of an address at a certain block height.",
-    parameters: z.object({
-      address: z.string().describe("the `string` representing the address to check for balance"),
-      blockno: z.string().describe("the `integer` block number to check balance for eg.")
-    }),
-    execute: async (params) => {
-      const fullParams = { ...params, module: "account", action: "balancehistory" };
-      return await apiCall(fullParams);
-    }
-  });
+  // TODO: pro api
+  // server.addTool({
+  //   name: "account/balancehistory",
+  //   description: "Returns the balance of an address at a certain block height.",
+  //   parameters: z.object({
+  //     address: z.string().describe("the `string` representing the address to check for balance"),
+  //     blockno: z.string().describe("the `integer` block number to check balance for eg."),
+  //     chainid: z.string().optional().default("1").describe("The chain id, default is 1")
+  //   }),
+  //   execute: async (params) => {
+  //     const fullParams = { ...params, module: "account", action: "balancehistory" };
+  //     return await apiCall(fullParams);
+  //   }
+  // });
 } 

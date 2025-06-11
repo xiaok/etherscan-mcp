@@ -13,8 +13,8 @@ A dynamic MCP server for interacting with Etherscan's API and services.
 The fastest way to test and debug your server is with `fastmcp dev`:
 
 ```bash
-npx fastmcp dev server.js
-npx fastmcp dev server.ts
+npx fastmcp dev src/server/server.ts
+npx fastmcp dev src/server/server.ts
 ```
 
 This will run your server with [`mcp-cli`](https://github.com/wong2/mcp-cli) for testing and debugging your MCP server in the terminal.
@@ -24,7 +24,7 @@ This will run your server with [`mcp-cli`](https://github.com/wong2/mcp-cli) for
 Another way is to use the official [`MCP Inspector`](https://modelcontextprotocol.io/docs/tools/inspector) to inspect your server with a Web UI:
 
 ```bash
-npx fastmcp inspect server.ts
+npx npx fastmcp inspect src/server/server.ts
 ```
 
 ## FAQ
@@ -49,10 +49,10 @@ Follow the guide https://modelcontextprotocol.io/quickstart/user and add the fol
 
 ## API Doc
 
-https://docs.etherscan.io/etherscan-v2
+https://docs.etherscan.io/etherscan-v2  
 
-support chain list: https://docs.etherscan.io/etherscan-v2/getting-started/supported-chains
-Please note that not all endpoints are supported by all chains. Please find support list here: https://forms.blockscan.com/public/grid/3E9QiN00NLhCQVibiP3Z-Bpqhmd7zGXsgapEKJupxiI
+support chain list: https://docs.etherscan.io/etherscan-v2/getting-started/supported-chains  
+Please note that not all endpoints are supported by all chains. Please find support list here: https://forms.blockscan.com/public/grid/3E9QiN00NLhCQVibiP3Z-Bpqhmd7zGXsgapEKJupxiI  
 
 ## TODO
 
