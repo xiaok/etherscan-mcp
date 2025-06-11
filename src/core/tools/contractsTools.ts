@@ -58,18 +58,4 @@ export function registerContractTools(server: FastMCP) {
       return await apiCall(fullParams);
     }
   });
-
-  // Checking Proxy Contract Verification Submission Status
-  server.addTool({
-    name: "contract/checkproxyverification",
-    description: "Returns the status of a proxy contract verification submission.",
-    parameters: z.object({
-      guid: z.string().describe("the unique `guid` received from the proxy verification request"),
-      chainid: z.string().optional().default("1").describe("chain id, default 1 ( Ethereum )"),
-    }),
-    execute: async (params) => {
-      const fullParams = { ...params, module: "contract", action: "checkproxyverification" };
-      return await apiCall(fullParams);
-    }
-  });
 }
