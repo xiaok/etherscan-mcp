@@ -47,34 +47,36 @@ export function registerGasTools(server: FastMCP) {
   });
 
   // Get Ethereum Daily Total Gas Used
-  server.addTool({
-    name: "stats/dailygasused",
-    description: "Returns the total amount of gas used daily for transctions on the Ethereum network.",
-    parameters: z.object({
-      startdate: z.string().describe("the starting date in `yyyy-MM-dd` format, eg. `2019-01-31`"),
-      enddate: z.string().describe("the ending date in `yyyy-MM-dd` format, eg. `2019-02-28`"),
-      sort: z.string().describe("the sorting preference, use `asc` to sort by ascending and `desc` to sort by descending"),
-      chainid: z.string().optional().default("1").describe("chain id, default 1 ( Ethereum )"),
-    }),
-    execute: async (params) => {
-      const fullParams = { ...params, module: "stats", action: "dailygasused" };
-      return await apiCall(fullParams);
-    }
-  });
+  // TODO: pro api
+  // server.addTool({
+  //   name: "stats/dailygasused",
+  //   description: "Returns the total amount of gas used daily for transctions on the Ethereum network.",
+  //   parameters: z.object({
+  //     startdate: z.string().describe("the starting date in `yyyy-MM-dd` format, eg. `2019-01-31`"),
+  //     enddate: z.string().describe("the ending date in `yyyy-MM-dd` format, eg. `2019-02-28`"),
+  //     sort: z.string().describe("the sorting preference, use `asc` to sort by ascending and `desc` to sort by descending"),
+  //     chainid: z.string().optional().default("1").describe("chain id, default 1 ( Ethereum )"),
+  //   }),
+  //   execute: async (params) => {
+  //     const fullParams = { ...params, module: "stats", action: "dailygasused" };
+  //     return await apiCall(fullParams);
+  //   }
+  // });
 
   // Get Daily Average Gas Price
-  server.addTool({
-    name: "stats/dailyavggasprice",
-    description: "Returns the daily average gas price used on the Ethereum network.",
-    parameters: z.object({
-      startdate: z.string().describe("the starting date in `yyyy-MM-dd` format, eg. `2019-01-31`"),
-      enddate: z.string().describe("the ending date in `yyyy-MM-dd` format, eg. `2019-02-28`"),
-      sort: z.string().describe("the sorting preference, use `asc` to sort by ascending and `desc` to sort by descending"),
-      chainid: z.string().optional().default("1").describe("chain id, default 1 ( Ethereum )"),
-    }),
-    execute: async (params) => {
-      const fullParams = { ...params, module: "stats", action: "dailyavggasprice" };
-      return await apiCall(fullParams);
-    }
-  });
+  // TODO: pro api
+  // server.addTool({
+  //   name: "stats/dailyavggasprice",
+  //   description: "Returns the daily average gas price used on the Ethereum network.",
+  //   parameters: z.object({
+  //     startdate: z.string().describe("the starting date in `yyyy-MM-dd` format, eg. `2019-01-31`"),
+  //     enddate: z.string().describe("the ending date in `yyyy-MM-dd` format, eg. `2019-02-28`"),
+  //     sort: z.string().describe("the sorting preference, use `asc` to sort by ascending and `desc` to sort by descending"),
+  //     chainid: z.string().optional().default("1").describe("chain id, default 1 ( Ethereum )"),
+  //   }),
+  //   execute: async (params) => {
+  //     const fullParams = { ...params, module: "stats", action: "dailyavggasprice" };
+  //     return await apiCall(fullParams);
+  //   }
+  // });
 } 
