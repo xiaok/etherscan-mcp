@@ -35,7 +35,7 @@ Follow the guide https://modelcontextprotocol.io/quickstart/user and add the fol
 ```json
 {
   "mcpServers": {
-    "my-mcp-server": {
+    "etherscan_mcp": {
       "command": "npx",
       "args": ["tsx", "/PATH/TO/YOUR_PROJECT/src/index.ts"],
       "env": {
