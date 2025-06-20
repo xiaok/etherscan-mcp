@@ -1,0 +1,19 @@
+# Smithery configuration file: https://smithery.ai/docs/build/project-config
+
+startCommand:
+  type: stdio
+  commandFunction:
+    # A JS function that produces the CLI command based on the given config to start the MCP on stdio.
+    |-
+    (config) => ({ command: 'bun', args: ['run', 'src/index.ts'], env: { ETHERSCAN_API_KEY: config.etherscanApiKey } })
+  configSchema:
+    # JSON Schema defining the configuration options for the MCP.
+    type: object
+    required:
+      - etherscanApiKey
+    properties:
+      etherscanApiKey:
+        type: string
+        description: Etherscan API key for accessing the Etherscan API
+  exampleConfig:
+    etherscanApiKey: YOUR_ETHERSCAN_API_KEY

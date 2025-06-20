@@ -1,5 +1,7 @@
 # @xiaok/etherscan-mcp
 
+[![smithery badge](https://smithery.ai/badge/@xiaok/etherscan-mcp-server)](https://smithery.ai/server/@xiaok/etherscan-mcp-server)
+
 A dynamic MCP server for interacting with Etherscan's API and services.
 
 <a href="https://glama.ai/mcp/servers/@xiaok/etherscan-mcp">
