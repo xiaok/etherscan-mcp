@@ -5,7 +5,7 @@ import { apiCall } from "./utils.js";
 export function registerGasTools(server: FastMCP) {
   // Get Estimation of Confirmation Time
   server.addTool({
-    name: "gas/gasestimate",
+    name: "gas__gasestimate",
     description: "Returns the estimated time, in seconds, for a transaction to be confirmed on the blockchain.",
     parameters: z.object({
       gasprice: z.string().describe("the price paid per unit of gas, in `wei`"),
@@ -19,7 +19,7 @@ export function registerGasTools(server: FastMCP) {
 
   // Get Gas Oracle
   server.addTool({
-    name: "gas/gasoracle",
+    name: "gas__gasoracle",
     description: "Returns the current Safe, Proposed and Fast gas prices.",
     parameters: z.object({
       chainid: z.string().optional().default("1").describe("chain id, default 1 ( Ethereum )"),
@@ -32,7 +32,7 @@ export function registerGasTools(server: FastMCP) {
 
   // Get Daily Average Gas Limit
   server.addTool({
-    name: "stats/dailyavggaslimit",
+    name: "stats__dailyavggaslimit",
     description: "Returns the historical daily average gas limit of the Ethereum network.",
     parameters: z.object({
       startdate: z.string().describe("the starting date in `yyyy-MM-dd` format, eg. `2019-01-31`"),

@@ -5,7 +5,7 @@ import { apiCall } from "./utils.js";
 export function registerTokensTools(server: FastMCP) {
   // Get ERC20-Token TotalSupply by ContractAddress
   server.addTool({
-    name: "stats/tokensupply",
+    name: "stats__tokensupply",
     description: "Returns the current amount of an ERC-20 token in circulation.",
     parameters: z.object({
       contractaddress: z.string().describe("the `contract address` of the ERC-20 token"),
@@ -19,7 +19,7 @@ export function registerTokensTools(server: FastMCP) {
 
   // Get ERC20-Token Account Balance for TokenContractAddress
   server.addTool({
-    name: "account/tokenbalance",
+    name: "account__tokenbalance",
     description: "Returns the current balance of an ERC-20 token of an address.",
     parameters: z.object({
       contractaddress: z.string().describe("the `contract address` of the ERC-20 token"),

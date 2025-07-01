@@ -5,7 +5,7 @@ import { apiCall } from "./utils.js";
 export function registerTransactionsTools(server: FastMCP) {
   // Check Contract Execution Status
   server.addTool({
-    name: "transaction/getstatus",
+    name: "transaction__getstatus",
     description: "Returns the status code of a contract execution.",
     parameters: z.object({
       txhash: z.string().describe("the `string` representing the transaction hash to check the execution status"),
@@ -19,7 +19,7 @@ export function registerTransactionsTools(server: FastMCP) {
 
   // Check Transaction Receipt Status
   server.addTool({
-    name: "transaction/gettxreceiptstatus",
+    name: "transaction__gettxreceiptstatus",
     description: "Returns the status code of a transaction execution.",
     parameters: z.object({
       txhash: z.string().describe("the `string` representing the transaction hash to check the execution status"),

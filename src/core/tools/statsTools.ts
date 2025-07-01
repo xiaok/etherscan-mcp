@@ -5,7 +5,7 @@ import { apiCall } from "./utils.js";
 export function registerStatsTools(server: FastMCP) {
   // Get Total Supply of Ether
   server.addTool({
-    name: "stats/ethsupply",
+    name: "stats__ethsupply",
     description: "Returns the current amount of Ether in circulation excluding ETH2 Staking rewards and EIP1559 burnt fees.",
     parameters: z.object({
       chainid: z.string().optional().default("1").describe("chain id, default 1 ( Ethereum )"),
@@ -18,7 +18,7 @@ export function registerStatsTools(server: FastMCP) {
 
   // Get Total Supply of Ether 2
   server.addTool({
-    name: "stats/ethsupply2",
+    name: "stats__ethsupply2",
     description: "Returns the current amount of Ether in circulation, ETH2 Staking rewards, EIP1559 burnt fees, and total withdrawn ETH from the beacon chain.",
     parameters: z.object({
       chainid: z.string().optional().default("1").describe("chain id, default 1 ( Ethereum )"),
@@ -31,7 +31,7 @@ export function registerStatsTools(server: FastMCP) {
 
   // Get Ether Last Price
   server.addTool({
-    name: "stats/ethprice",
+    name: "stats__ethprice",
     description: "Returns the latest price of 1 ETH.",
     parameters: z.object({
       chainid: z.string().optional().default("1").describe("chain id, default 1 ( Ethereum )"),
@@ -44,7 +44,7 @@ export function registerStatsTools(server: FastMCP) {
 
   // Get Ethereum Nodes Size
   server.addTool({
-    name: "stats/chainsize",
+    name: "stats__chainsize",
     description: "Returns the size of the Ethereum blockchain, in bytes, over a date range.",
     parameters: z.object({
       startdate: z.string().describe("the starting date in `yyyy-MM-dd` format, eg. `2019-02-01`"),
@@ -62,7 +62,7 @@ export function registerStatsTools(server: FastMCP) {
 
   // Get Total Nodes Count
   server.addTool({
-    name: "stats/nodecount",
+    name: "stats__nodecount",
     description: "Returns the total number of discoverable Ethereum nodes.",
     parameters: z.object({
       chainid: z.string().optional().default("1").describe("chain id, default 1 ( Ethereum )"),
@@ -75,7 +75,7 @@ export function registerStatsTools(server: FastMCP) {
 
   // Get Daily Network Transaction Fee
   server.addTool({
-    name: "stats/dailytxnfee",
+    name: "stats__dailytxnfee",
     description: "Returns the amount of transaction fees paid to miners per day.",
     parameters: z.object({
       startdate: z.string().describe("the starting date in `yyyy-MM-dd` format, eg. `2019-02-01`"),
@@ -91,7 +91,7 @@ export function registerStatsTools(server: FastMCP) {
 
   // Get Daily New Address Count
   server.addTool({
-    name: "stats/dailynewaddress",
+    name: "stats__dailynewaddress",
     description: "Returns the number of new Ethereum addresses created per day.",
     parameters: z.object({
       startdate: z.string().describe("the starting date in `yyyy-MM-dd` format, eg. `2019-02-01`"),
@@ -107,7 +107,7 @@ export function registerStatsTools(server: FastMCP) {
 
   // Get Daily Network Utilization
   server.addTool({
-    name: "stats/dailynetutilization",
+    name: "stats__dailynetutilization",
     description: "Returns the daily average gas used over gas limit, in percentage.",
     parameters: z.object({
       startdate: z.string().describe("the starting date in `yyyy-MM-dd` format, eg. `2019-02-01`"),
@@ -123,7 +123,7 @@ export function registerStatsTools(server: FastMCP) {
 
   // Get Daily Average Network Hash Rate
   server.addTool({
-    name: "stats/dailyavghashrate",
+    name: "stats__dailyavghashrate",
     description: "Returns the historical measure of processing power of the Ethereum network.",
     parameters: z.object({
       startdate: z.string().describe("the starting date in `yyyy-MM-dd` format, eg. `2019-02-01`"),
@@ -139,7 +139,7 @@ export function registerStatsTools(server: FastMCP) {
 
   // Get Daily Transaction Count
   server.addTool({
-    name: "stats/dailytx",
+    name: "stats__dailytx",
     description: "Returns the number of transactions performed on the Ethereum blockchain per day.",
     parameters: z.object({
       startdate: z.string().describe("the starting date in `yyyy-MM-dd` format, eg. `2019-02-01`"),
@@ -155,7 +155,7 @@ export function registerStatsTools(server: FastMCP) {
 
   // Get Daily Average Network Difficulty
   server.addTool({
-    name: "stats/dailyavgnetdifficulty",
+    name: "stats__dailyavgnetdifficulty",
     description: "Returns the historical mining difficulty of the Ethereum network.",
     parameters: z.object({
       startdate: z.string().describe("the starting date in `yyyy-MM-dd` format, eg. `2019-02-01`"),
@@ -171,7 +171,7 @@ export function registerStatsTools(server: FastMCP) {
 
   // Get Ether Historical Price
   server.addTool({
-    name: "stats/ethdailyprice",
+    name: "stats__ethdailyprice",
     description: "Returns the historical price of 1 ETH.",
     parameters: z.object({
       startdate: z.string().describe("the starting date in `yyyy-MM-dd` format, eg. `2019-02-01`"),

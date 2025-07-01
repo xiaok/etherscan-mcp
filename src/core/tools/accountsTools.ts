@@ -5,7 +5,7 @@ import { apiCall } from "./utils.js";
 export function registerAccountTools(server: FastMCP) {
   // Get Ether Balance for a Single Address
   server.addTool({
-    name: "account/balance",
+    name: "account__balance",
     description: "Returns the Ether balance of a given address.",
     parameters: z.object({
       address: z.string().describe("the `string` representing the address to check for balance"),
@@ -19,7 +19,7 @@ export function registerAccountTools(server: FastMCP) {
 
   // Get Ether Balance for Multiple Addresses in a Single Call
   server.addTool({
-    name: "account/balancemulti",
+    name: "account__balancemulti",
     description: "Get Ether Balance for Multiple Addresses in a Single Call",
     parameters: z.object({
       address: z.string().describe("the `strings` representing the addresses to check for balance, separated by `,`\nup to **20 addresses** per call"),
@@ -33,7 +33,7 @@ export function registerAccountTools(server: FastMCP) {
 
   // Get a list of 'Normal' Transactions By Address
   server.addTool({
-    name: "account/txlist",
+    name: "account__txlist",
     description: "Returns the list of 'Normal' Transactions By Address",
     parameters: z.object({
       address: z.string().describe("the `string` representing the addresses to check for balance"),
@@ -52,7 +52,7 @@ export function registerAccountTools(server: FastMCP) {
 
   // Get a list of 'Internal' Transactions by Address
   server.addTool({
-    name: "account/txlistinternal",
+    name: "account__txlistinternal",
     description: "Returns the list of 'Internal' Transactions by Address",
     parameters: z.object({
       address: z.string().describe("the `string` representing the address to get internal txs for"),
@@ -71,7 +71,7 @@ export function registerAccountTools(server: FastMCP) {
 
   // Get 'Internal Transactions' by Transaction Hash
   server.addTool({
-    name: "account/txlistinternal_byhash",
+    name: "account__txlistinternal_byhash",
     description: "Returns the list of 'Internal' Transactions by Transaction Hash",
     parameters: z.object({
       txhash: z.string().describe("the `string` representing the transaction hash to get internal txs for"),
@@ -85,7 +85,7 @@ export function registerAccountTools(server: FastMCP) {
 
   // Get "Internal Transactions" by Block Range
   server.addTool({
-    name: "account/txlistinternal_byblock",
+    name: "account__txlistinternal_byblock",
     description: "Returns the list of 'Internal' Transactions by Block Range",
     parameters: z.object({
       startblock: z.string().describe("the `integer` block number to start searching for transactions"),
@@ -103,7 +103,7 @@ export function registerAccountTools(server: FastMCP) {
 
   // Get a list of 'ERC20 - Token Transfer Events' by Address
   server.addTool({
-    name: "account/tokentx",
+    name: "account__tokentx",
     description: "Returns the list of ERC20 Token Transfer Events by Address",
     parameters: z.object({
       address: z.string().describe("the `string` representing the address to get token transfers for"),
@@ -123,7 +123,7 @@ export function registerAccountTools(server: FastMCP) {
 
   // Get a list of 'ERC721 - Token Transfer Events' by Address
   server.addTool({
-    name: "account/tokennfttx",
+    name: "account__tokennfttx",
     description: "Returns the list of ERC721 Token Transfer Events by Address",
     parameters: z.object({
       address: z.string().describe("the `string` representing the address to get NFT transfers for"),
@@ -143,7 +143,7 @@ export function registerAccountTools(server: FastMCP) {
 
   // Get a list of 'ERC1155 - Token Transfer Events' by Address
   server.addTool({
-    name: "account/token1155tx",
+    name: "account__token1155tx",
     description: "Returns the list of ERC1155 Token Transfer Events by Address",
     parameters: z.object({
       address: z.string().describe("the `string` representing the address to get ERC1155 transfers for"),
@@ -163,7 +163,7 @@ export function registerAccountTools(server: FastMCP) {
 
   // Get Address Funded By
   server.addTool({
-    name: "account/fundedby",
+    name: "account__fundedby",
     description: "Returns the address that funded an address, and its relative age.",
     parameters: z.object({
       address: z.string().describe("the `string` representing the address that received funding"),
@@ -177,7 +177,7 @@ export function registerAccountTools(server: FastMCP) {
 
   // Get list of Blocks Validated by Address
   server.addTool({
-    name: "account/getminedblocks",
+    name: "account__getminedblocks",
     description: "Returns the list of blocks validated by an address.",
     parameters: z.object({
       address: z.string().describe("the `string` representing the address to check for validated blocks"),
@@ -194,7 +194,7 @@ export function registerAccountTools(server: FastMCP) {
 
   // Get Beacon Chain Withdrawals by Address and Block Range
   server.addTool({
-    name: "account/txsBeaconWithdrawal",
+    name: "account__txsBeaconWithdrawal",
     description: "Returns the beacon chain withdrawals made to an address.",
     parameters: z.object({
       address: z.string().describe("the `string` representing the address to check for beacon withdrawals"),

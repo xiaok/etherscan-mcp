@@ -5,7 +5,7 @@ import { apiCall } from "./utils.js";
 export function registerContractTools(server: FastMCP) {
   // Get Contract ABI for Verified Contract Source Codes
   server.addTool({
-    name: "contract/getabi",
+    name: "contract__getabi",
     description: "Returns the Contract Application Binary Interface ( ABI ) of a verified smart contract.",
     parameters: z.object({
       address: z.string().describe("the `contract address` that has a verified source code"),
@@ -19,7 +19,7 @@ export function registerContractTools(server: FastMCP) {
 
   // Get Contract Source Code for Verified Contract Source Codes
   server.addTool({
-    name: "contract/getsourcecode",
+    name: "contract__getsourcecode",
     description: "Returns the Contract Source Code for Verified Contract Source Codes.",
     parameters: z.object({
       address: z.string().describe("the `contract address` that has a verified source code"),
@@ -33,7 +33,7 @@ export function registerContractTools(server: FastMCP) {
 
   // Get Contract Creator and Creation Tx Hash
   server.addTool({
-    name: "contract/getcontractcreation",
+    name: "contract__getcontractcreation",
     description: "Returns the Contract Creator and Creation Tx Hash.",
     parameters: z.object({
       contractaddresses: z.string().describe("the `contract address` to check for contract creator and creation tx hash, up to 5 at a time"),
@@ -47,7 +47,7 @@ export function registerContractTools(server: FastMCP) {
 
   // Check Source Code Verification Status
   server.addTool({
-    name: "contract/checkverifystatus",
+    name: "contract__checkverifystatus",
     description: "Returns the success or error status of a contract verification request.",
     parameters: z.object({
       guid: z.string().describe("the unique `guid` received from the verification request"),

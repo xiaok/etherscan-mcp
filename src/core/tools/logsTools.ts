@@ -5,7 +5,7 @@ import { apiCall } from "./utils.js";
 export function registerLogsTools(server: FastMCP) {
   // Get Event Logs by Address
   server.addTool({
-    name: "logs/getLogsByAddress",
+    name: "logs__getLogsByAddress",
     description: "Returns the event logs from an address, with optional filtering by block range.",
     parameters: z.object({
       address: z.string().describe("the `string` representing the address to check for logs"),
@@ -23,7 +23,7 @@ export function registerLogsTools(server: FastMCP) {
 
   // Get Event Logs by Topics
   server.addTool({
-    name: "logs/getLogsByTopics",
+    name: "logs__getLogsByTopics",
     description: "Returns the events log in a block range, filtered by topics.",
     parameters: z.object({
       fromBlock: z.string().describe("the `integer` block number to start searching for logs eg. `12878196`"),
@@ -50,7 +50,7 @@ export function registerLogsTools(server: FastMCP) {
 
   // Get Event Logs by Address filtered by Topics
   server.addTool({
-    name: "logs/getLogsByAddressAndTopics",
+    name: "logs__getLogsByAddressAndTopics",
     description: "Returns the event logs from an address, filtered by topics and block range.",
     parameters: z.object({
       fromBlock: z.string().describe("the `integer` block number to start searching for logs eg. `12878196`"),

@@ -5,7 +5,7 @@ import { apiCall } from "./utils.js";
 export function registerBlocksTools(server: FastMCP) {
   // Get Block And Uncle Rewards by BlockNo
   server.addTool({
-    name: "block/getblockreward",
+    name: "block__getblockreward",
     description: "Returns the block reward and 'Uncle' block rewards.",
     parameters: z.object({
       blockno: z.string().describe("the `integer` block number to check block rewards for eg."),
@@ -19,7 +19,7 @@ export function registerBlocksTools(server: FastMCP) {
 
   // Get Estimated Block Countdown Time by BlockNo
   server.addTool({
-    name: "block/getblockcountdown",
+    name: "block__getblockcountdown",
     description: "Returns the estimated time remaining, in seconds, until a certain block is mined.",
     parameters: z.object({
       blockno: z.string().describe("the `integer` block number to estimate time remaining to be mined eg."),
@@ -33,7 +33,7 @@ export function registerBlocksTools(server: FastMCP) {
 
   // Get Block Number by Timestamp
   server.addTool({
-    name: "block/getblocknobytime",
+    name: "block__getblocknobytime",
     description: "Returns the block number that was mined at a certain timestamp.",
     parameters: z.object({
       timestamp: z.string().describe("the `integer` representing the Unix timestamp in **seconds**."),
@@ -48,7 +48,7 @@ export function registerBlocksTools(server: FastMCP) {
 
   // Get Block Transactions Count by BlockNo
   server.addTool({
-    name: "block/getblocktxnscount",
+    name: "block__getblocktxnscount",
     description: "Returns the number of transactions in a specified block.",
     parameters: z.object({
       blockno: z.string().describe("the `integer` block number to get the transaction count for, eg."),
